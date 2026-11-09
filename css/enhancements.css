@@ -195,7 +195,7 @@
 
 /* ---------- Invitation card: tilt, sheen and handwritten names ---------- */
 .wedding-card {
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.6s ease, border-color 0.6s ease;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.6s ease, border-color 0.6s ease; 
 }
 
 .wedding-card::after {
@@ -283,4 +283,229 @@
   .story-chapter:not(.lit) .chapter-icon { filter: none; }
   .section-eyebrow.pre-draw { opacity: 1; letter-spacing: 4px; }
   .story-divider.pre-draw span { width: 50px; }
+}
+
+/* ============================================================
+   User Design & UX Suggestions Polish
+   ============================================================ */
+
+.content-overlay {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 70%, transparent 95%) !important;
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle, .date, .countdown-label, .spiritual-text p, .scroll-prompt {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.countdown-box {
+  padding: 14px 18px !important;
+}
+
+.countdown-num {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes bounceChevron {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.scroll-prompt .chevron {
+  display: inline-block;
+  animation: bounceChevron 1.5s ease-in-out infinite;
+}
+
+.weds {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #d4af37, #f3e5ab, #aa771c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0 10px;
+  font-weight: 400;
+}
+
+.relation-label {
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+}
+
+.invite-date {
+  background: rgba(253, 246, 227, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #5a3e1b;
+  padding: 10px 22px;
+  border-radius: 30px;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 992px) {
+  .section-3 .celebration-group:nth-of-type(2) .col-lg-6 {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.attire-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.6);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.attire-dot.green { background: #2e7d32; }
+.attire-dot.yellow { background: #fbc02d; }
+
+.event-venue {
+  cursor: pointer;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 14px rgba(212, 175, 55, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+.music-toggle-btn.playing {
+  animation: pulseRing 1.8s infinite;
+  background: var(--vibe-accent, #d4af37) !important;
+  color: #fff !important;
+}
+
+/* ============================================================
+   Rich Festive Animations & Polish
+   ============================================================ */
+
+@keyframes borderShimmer {
+  0% { border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); }
+  50% { border-color: rgba(255, 223, 128, 0.9); box-shadow: 0 0 30px rgba(212, 175, 55, 0.45); }
+  100% { border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); }
+}
+
+.wedding-card, .professional-event-card {
+  animation: borderShimmer 4s ease-in-out infinite;
+}
+
+@keyframes omPulse {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 20px rgba(229, 184, 11, 0.8); }
+  50% { transform: scale(1.08); text-shadow: 0 0 35px rgba(229, 184, 11, 1), 0 0 15px rgba(255, 255, 255, 0.6); }
+}
+
+.hero-container .om {
+  animation: omPulse 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.professional-event-card {
+  opacity: 0;
+  transform: translateY(35px) scale(0.97);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.professional-event-card.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@keyframes sparkleFloat {
+  0% { transform: translateY(0) rotate(0deg) scale(0.6); opacity: 0; }
+  20% { opacity: 0.9; }
+  80% { opacity: 0.9; }
+  100% { transform: translateY(-130vh) rotate(360deg) scale(1.3); opacity: 0; }
+}
+
+.festive-sparkle {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  background: radial-gradient(circle, #fff 0%, #ffd700 60%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 12px #ffd700, 0 0 24px #ffaa00;
+  animation: sparkleFloat 5.5s linear infinite;
+}
+
+@keyframes clickRipple {
+  0% { transform: scale(0); opacity: 0.85; }
+  100% { transform: scale(4.5); opacity: 0; }
+}
+
+.click-ripple {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.65) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: clickRipple 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 10000;
+}
+
+/* ---------- Haldi Powder Drift & Splash Effects ---------- */
+@keyframes turmericDrift {
+  0% { transform: translate(0, 0) scale(0.7); opacity: 0; }
+  25% { opacity: 0.75; }
+  75% { opacity: 0.75; }
+  100% { transform: translate(70px, -140px) scale(1.7); opacity: 0; }
+}
+
+.turmeric-dust {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, rgba(255, 235, 59, 0.95) 0%, rgba(255, 152, 0, 0.65) 60%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(1.5px);
+  pointer-events: none;
+  z-index: 5;
+  animation: turmericDrift 4.5s ease-out forwards;
+}
+
+@keyframes haldiSplashSpring {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.haldi-splash-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #ffeb3b, #ff9800);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5);
+  animation: haldiSplashSpring 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  z-index: 10;
+}
+
+.haldi-splash-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 152, 0, 0.55) 70%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  animation: haldiSplashSpring 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  z-index: 5;
 }
