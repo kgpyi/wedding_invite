@@ -4,27 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nikita Weds Khushal • Royal Wedding Celebration</title>
+  <meta name="description" content="With the blessings of the Almighty, Nikita and Khushal invite you to celebrate their wedding on Friday, 11th December 2026 in Sunam, Punjab." />
+  <meta name="theme-color" content="#2a1236" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nikita Weds Khushal • 11th December 2026" />
+  <meta property="og:description" content="Mehndi, Haldi, Sangeet, Wedding Ceremony and Reception in Sunam, Punjab. Join us in the celebrations!" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" crossorigin href="/assets/index-ClQsFOSh.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-CLTPYUu9.css">
 </head>
 <body data-theme="default" data-family="bride">
 
   <!-- Floating Family Side Toggle & HUD -->
   <div class="floating-top-toggle">
-    <div class="family-slider-toggle" id="familySliderToggle" title="Switch Side">
+    <div class="family-slider-toggle" id="familySliderToggle" title="Switch Family Side: Nikita 🌼 or Khushal 👑">
       <div class="slider-track">
         <div class="slider-thumb" id="sliderThumb">N</div>
-        <span class="option-label bride-lbl active" id="lblNikita">🌸 NIKITA</span>
+        <span class="option-label bride-lbl active" id="lblNikita">🌼 NIKITA</span>
         <span class="option-label groom-lbl" id="lblKhushal">👑 KHUSHAL</span>
       </div>
     </div>
   </div>
 
   <div class="floating-action-hud">
-    <button class="hud-btn music-toggle-btn" id="musicToggleBtn" title="Play Wedding Shehnai">
-      <i class="fa-solid fa-music"></i>
+    <button class="hud-btn calendar-btn" id="openCalendarModal" title="Add Events to Calendar">
+      <i class="fa-regular fa-calendar-plus"></i>
+    </button>
+    <button class="hud-btn petals-btn" id="triggerPetals" title="Shower Petals">
+      <i class="fa-solid fa-spa"></i>
     </button>
     <button class="hud-btn wishes-btn" id="openWishesModal" title="Send Wishes">
       <i class="fa-solid fa-heart"></i>
@@ -45,8 +54,8 @@
       </div>
 
       <h1 class="title">Nikita Weds Khushal</h1>
-      <p class="subtitle">From the Sacred Ghats of Rishikesh & Heritage of Delhi to the Royal Festivities of Punjab</p>
-      <p class="date">Friday, 11th & Saturday, 12th December 2026</p>
+      <p class="subtitle">Bound by the Sacred Fire, Blessed by the Gods, United for Eternity</p>
+      <p class="date">Friday, 11th December 2026</p>
 
       <!-- 4 Countdown Boxes -->
       <div class="countdown-boxes-container mb-3">
@@ -76,94 +85,105 @@
   </section>
 
   <!-- Section 1B: Wedding Invitation Card (Scroll Reveal) -->
-  <section class="section" id="invitationSection" style="min-height: 90vh;">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 text-center">
-          <div class="wedding-card-container scroll-reveal-card revealed" id="weddingInviteCard">
-            <div class="side-figure groom-side" style="background-image: url('/assets/groom-uE0vKRT0.png');" alt="Groom Khushal"></div>
-            
-            <div class="wedding-card" id="weddingCardMain">
-              <div class="gold-badge-top">✦ Royal Wedding Invitation ✦</div>
-              
-              <div class="wedding-names" id="weddingNamesContainer">
-                <div class="name primary-name" id="firstName">Nikita</div>
-                <div class="weds-wrapper">
-                  <span class="weds" id="wedsLabel">weds</span>
-                </div>
-                <div class="name secondary-name" id="secondName">Khushal</div>
-              </div>
+  <section class="section invite-section" id="invitationSection">
+    <div class="invite-stage scroll-reveal-card revealed" id="weddingInviteCard">
+      <img class="invite-figure groom-figure" src="/assets/groom-uE0vKRT0.png" alt="Groom Khushal" loading="lazy">
 
-              <div class="parents-section" id="parentsSection">
-                <div class="parent-block primary-parent">
-                  <p class="relation-label" id="firstRelationLabel">Daughter of</p>
-                  <p class="parent-names" id="firstParentNames">Mr. Diwan Singh Gosai & Mrs. Guddi Gosai</p>
-                </div>
-                <div class="divider"></div>
-                <div class="parent-block secondary-parent">
-                  <p class="relation-label" id="secondRelationLabel">Son of</p>
-                  <p class="parent-names" id="secondParentNames">Mr. Mukesh Kumar Goyal & Mrs. Rajni Goyal</p>
-                </div>
-              </div>
+      <div class="wedding-card" id="weddingCardMain">
+        <div class="invite-inner">
+          <div class="invite-ganesh">॥ श्री गणेशाय नमः ॥</div>
+          <div class="gold-badge-top">✦ Royal Wedding Invitation ✦</div>
+          <p class="invite-blessing">With the divine blessings of the Almighty and the love of our elders, we joyfully invite you to celebrate the sacred union of</p>
 
-              <div class="wedding-date-badge my-3">
-                <i class="fa-regular fa-calendar-days me-2"></i> Friday, 11th December & Saturday, 12th December 2026
-              </div>
-              <p class="hashtag mb-0"><i class="fa-solid fa-location-dot me-1"></i> Venue: Maharaja Malhi Palace & Shiv Niketan Mandap, Sunam, Punjab</p>
+          <div class="wedding-names" id="weddingNamesContainer">
+            <div class="name primary-name" id="firstName">Nikita</div>
+            <div class="weds-wrapper">
+              <span class="weds" id="wedsLabel">weds</span>
             </div>
-
-            <div class="side-figure bride-side" style="background-image: url('/assets/bride-5p_ZGmLJ.png');" alt="Bride Nikita"></div>
+            <div class="name secondary-name" id="secondName">Khushal</div>
           </div>
+
+          <div class="parents-section" id="parentsSection">
+            <div class="parent-block primary-parent">
+              <p class="relation-label" id="firstRelationLabel">Daughter of</p>
+              <p class="parent-names" id="firstParentNames">Mrs. Guddi Gosai & Mr. Diwan Singh Gosai</p>
+            </div>
+            <div class="divider"></div>
+            <div class="parent-block secondary-parent">
+              <p class="relation-label" id="secondRelationLabel">Son of</p>
+              <p class="parent-names" id="secondParentNames">Mrs. Rajni Goyal & Mr. Mukesh Kumar Goyal</p>
+            </div>
+          </div>
+
+          <div class="invite-date"><i class="fa-regular fa-calendar-days"></i> Friday, 11th December 2026 &nbsp;•&nbsp; Sunam</div>
+
+          <p class="invite-closing">Your presence will make our celebration complete</p>
         </div>
       </div>
+
+      <img class="invite-figure bride-figure" src="/assets/bride-5p_ZGmLJ.png" alt="Bride Nikita" loading="lazy">
     </div>
   </section>
 
   <!-- Section 2: Our Love Story -->
   <section class="section section-2" id="section2">
-    <div class="container py-5">
-      <div class="row align-items-center justify-content-center story-row">
-        
-        <!-- Left Side - Visual Art -->
-        <div class="col-lg-5 mb-5 mb-lg-0 text-center story-visual-col">
-          <div class="story-visual-card p-4">
-            <div class="ornament ornament-top">✦ ✦ ✦</div>
-            <div class="decorative-element my-4">
-              <i class="fa-solid fa-ring-diamond fa-2x" style="color: var(--vibe-accent);"></i>
-              <div class="floating-hearts">
-                <span class="f-heart">❤</span>
-                <span class="f-heart">❤</span>
-                <span class="f-heart">❤</span>
-              </div>
-            </div>
-            <h3 class="story-card-title">Two Souls, One Destiny</h3>
-            <p class="visual-caption">"What is meant for you will find its way even in the most magical of ways."</p>
-            <div class="ornament ornament-bottom">✦ ✦ ✦</div>
+    <div class="story-wrap">
+      <div class="story-header text-center">
+        <span class="section-eyebrow">A Tale of Love</span>
+        <h2 class="section-title story-title">Our Story</h2>
+        <div class="story-divider">
+          <span></span>
+          <i class="fa-solid fa-heart"></i>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="story-layout">
+        <!-- Left: arched mandap frame with the couple -->
+        <div class="story-frame-col">
+          <div class="story-arch">
+            <div class="story-arch-glow"></div>
+            <img src="/assets/Warmala-CUU7EWz8.png" alt="Nikita and Khushal exchanging varmala" class="story-arch-img" loading="lazy">
+          </div>
+          <div class="story-quote-badge">
+            <span class="story-quote-mark">❝</span>
+            <p>What is meant for you will find its way, quietly and effortlessly.</p>
           </div>
         </div>
 
-        <!-- Right Side - Story Text -->
-        <div class="col-lg-7 story-content-col">
-          <div class="story-scroll-container text-start p-4 p-md-5">
-            <div class="story-header mb-4">
-              <span class="story-subtitle">A Tale of Love</span>
-              <h2 class="story-title">Our Story</h2>
-              <div class="story-divider">
-                <span></span>
-                <i class="fa-solid fa-heart"></i>
-                <span></span>
-              </div>
+        <!-- Right: three-chapter timeline -->
+        <ol class="story-timeline">
+          <li class="story-chapter">
+            <div class="chapter-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="chapter-card">
+              <span class="chapter-num">Chapter I</span>
+              <h3>Where It Began</h3>
+              <p>Our paths first crossed during an internship. What began with collaborating on projects and daily work conversations steadily grew into an effortless friendship built on mutual trust and understanding.</p>
             </div>
-            <div class="story-body">
-              <p>Their journey began under a canopy of stars, where two paths intertwined into a single destiny. What started as warm conversation blossomed into an unbreakable bond of shared laughter, quiet understanding, and unwavering support.</p>
-
-              <p>Through every season and adventure—from spontaneous road trips to quiet mornings over coffee—they discovered that true love isn't just about grand milestones, but the absolute peace of being home in each other's presence.</p>
-
-              <p>Now, standing on the threshold of forever, they invite you to celebrate their sacred union, surrounded by the blessings of family and the joy of lifelong companionship.</p>
+          </li>
+          <li class="story-chapter">
+            <div class="chapter-icon"><i class="fa-solid fa-mug-hot"></i></div>
+            <div class="chapter-card">
+              <span class="chapter-num">Chapter II</span>
+              <h3>Growing Together</h3>
+              <p>Over the years, that initial camaraderie quietly evolved into something deeper. Through city commutes, career milestones, and quiet evenings, we found a partnership rooted in mutual respect, comfort, and shared purpose.</p>
             </div>
-          </div>
-        </div>
+          </li>
+          <li class="story-chapter">
+            <div class="chapter-icon"><i class="fa-solid fa-fire"></i></div>
+            <div class="chapter-card">
+              <span class="chapter-num">Chapter III</span>
+              <h3>Forever Begins</h3>
+              <p>With the blessings of our families, we take the next step together. We warmly invite you to join us as we celebrate our wedding and begin this new chapter.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
 
+      <div class="story-banner">
+        <span class="banner-flourish">❁</span>
+        <p class="banner-title">Two Souls, One Destiny</p>
+        <span class="banner-flourish">❁</span>
       </div>
     </div>
   </section>
@@ -173,136 +193,128 @@
     <div class="container py-5">
       <div class="row text-center mb-5">
         <div class="col-12">
-          <span class="gallery-subtitle">Royal Itinerary</span>
-          <h1 class="celebrations-title">The Celebrations</h1>
+          <span class="section-eyebrow">Royal Itinerary</span>
+          <h2 class="section-title celebrations-title">The Celebrations</h2>
           <div class="story-divider">
             <span></span>
             <i class="fa-solid fa-ring"></i>
             <span></span>
           </div>
-          <p class="text-muted">Join us in the sacred rituals and joyous festivities</p>
+          <p class="section-lead">Join us in the sacred rituals and joyous festivities</p>
         </div>
       </div>
 
-      <div class="row g-4">
-        <!-- Event 1: Haldi Ceremony -->
-        <div class="col-lg-6">
-          <div class="professional-event-card">
+      <div class="celebration-group">
+        <h3 class="group-head">Pre-Wedding Festivities</h3>
+        <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="professional-event-card bg-event-card animated-card" style="background-image: linear-gradient(135deg, rgba(20, 40, 30, 0.45), rgba(40, 20, 50, 0.6)), url('/assets/mehndi-DkmwjO_T.png'); background-size: cover; background-position: center;">
             <div class="event-card-header">
-              <span class="event-badge">09 DECEMBER 2026</span>
+              <span class="event-badge">Day 1 · Wed, 9 Dec</span>
+              <i class="fa-solid fa-leaf event-icon"></i>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-title text-white">Mehndi</h3>
+              <p class="event-time text-light"><i class="fa-regular fa-moon me-2"></i>Evening</p>
+              <p class="event-venue text-light"><i class="fa-solid fa-location-dot me-2"></i><a class="venue-link text-warning" href="https://www.google.com/maps/search/?api=1&amp;query=Shiv+Niketan%2C+Anand+Chowk%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" title="Open in Google Maps">Shiv Niketan, Anand Chowk, Sunam, Punjab<i class="fa-solid fa-arrow-up-right-from-square venue-ext"></i></a></p>
+              <p class="event-note text-white-50 fst-italic">"Henna on the hands and love in every swirl."</p>  
+              <p class="event-attire text-light"><i class="fa-solid fa-shirt me-2 text-warning"></i><span class="attire-dot green"></span>Suggested attire: Vibrant greens</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="professional-event-card bg-event-card animated-card" style="background-image: linear-gradient(135deg, rgba(60, 45, 15, 0.45), rgba(40, 30, 10, 0.6)), url('/assets/haldi-BkvDOqIb.png'); background-size: cover; background-position: center;">
+            <div class="event-card-header">
+              <span class="event-badge">Day 2 · Thu, 10 Dec</span>
               <i class="fa-solid fa-sun event-icon"></i>
             </div>
             <div class="event-card-body">
-              <h3 class="event-title">Haldi Ceremony</h3>
-              <p class="event-time"><i class="fa-regular fa-clock me-2"></i>10:00 AM Onwards</p>
-              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>Shiv Niketan, Anand Chowk, Sunam, Punjab</p>
-              <p class="event-note">"A sacred glow of turmeric, laughter, and floral blessings."</p>
-              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
-                <span class="event-dress">💛 Dress Code: Shades of Yellow</span>
-                <button class="btn btn-sm btn-outline-warning event-action-btn" onclick="alert('Haldi event saved to itinerary!')">Add to Calendar</button>
-              </div>
+              <h3 class="event-title text-white">Haldi</h3>
+              <p class="event-time text-light"><i class="fa-regular fa-sun me-2"></i>Morning</p>
+              <p class="event-venue text-light"><i class="fa-solid fa-location-dot me-2"></i><a class="venue-link text-warning" href="https://www.google.com/maps/search/?api=1&amp;query=Shiv+Niketan%2C+Anand+Chowk%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" title="Open in Google Maps">Shiv Niketan, Anand Chowk, Sunam, Punjab<i class="fa-solid fa-arrow-up-right-from-square venue-ext"></i></a></p>
+              <p class="event-note text-white-50 fst-italic">"A sacred glow of turmeric, laughter, and floral blessings."</p>
+              <p class="event-attire text-light mt-2"><i class="fa-solid fa-shirt me-2 text-warning"></i><span class="attire-dot yellow"></span>Suggested attire: Shades of yellow</p>
             </div>
           </div>
         </div>
-
-        <!-- Event 2: Mehndi & Sangeet -->
-        <div class="col-lg-6">
-          <div class="professional-event-card">
+        <div class="col-lg-4">
+          <div class="professional-event-card bg-event-card animated-card" style="background-image: linear-gradient(135deg, rgba(30, 15, 45, 0.45), rgba(50, 20, 60, 0.6)), url('/assets/sangeet-kBDJuP0N.png'); background-size: cover; background-position: center;">
             <div class="event-card-header">
-              <span class="event-badge">10 DECEMBER 2026</span>
+              <span class="event-badge">Day 2 · Thu, 10 Dec</span>
               <i class="fa-solid fa-music event-icon"></i>
             </div>
             <div class="event-card-body">
-              <h3 class="event-title">Mehndi & Sangeet Night</h3>
-              <p class="event-time"><i class="fa-regular fa-clock me-2"></i>5:00 PM Onwards</p>
-              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>The Royal Courtyard, Sunam, Punjab</p>
-              <p class="event-note">"Henna on the hands, rhythm in the feet, and melodies in the air!"</p>
-              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
-                <span class="event-dress">🌿 Dress Code: Vibrant Greens & Festive Glam</span>
-                <button class="btn btn-sm btn-outline-warning event-action-btn" onclick="alert('Mehndi & Sangeet event saved!')">Add to Calendar</button>
-              </div>
+              <h3 class="event-title text-white">Sangeet</h3>
+              <p class="event-time text-light"><i class="fa-regular fa-moon me-2"></i>Evening</p>
+              <p class="event-venue text-light"><i class="fa-solid fa-location-dot me-2"></i><a class="venue-link text-warning" href="https://www.google.com/maps/search/?api=1&amp;query=Shiv+Niketan%2C+Anand+Chowk%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" title="Open in Google Maps">Shiv Niketan, Anand Chowk, Sunam, Punjab<i class="fa-solid fa-arrow-up-right-from-square venue-ext"></i></a></p>
+              <p class="event-note text-white-50 fst-italic">"Rhythm in the feet and melodies in the air!"</p>  
             </div>
           </div>
         </div>
+        </div>
+        </div>
 
-        <!-- Event 3: Wedding Ceremony -->
+        <div class="celebration-group">
+        <h3 class="group-head">The Wedding Day</h3>
+        <div class="row g-4">
         <div class="col-lg-6">
-          <div class="professional-event-card featured-event">
+          <div class="professional-event-card featured-event bg-event-card animated-card" style="background-image: linear-gradient(135deg, rgba(40, 15, 25, 0.45), rgba(60, 25, 35, 0.6)), url('/assets/phere-BDLOZx6F.png'); background-size: cover; background-position: center;">
             <div class="event-card-header">
-              <span class="event-badge">11 DECEMBER 2026</span>
+              <span class="event-badge">Day 3 · Fri, 11 Dec</span>
               <i class="fa-solid fa-fire event-icon"></i>
             </div>
             <div class="event-card-body">
-              <h3 class="event-title">The Wedding Ceremony</h3>
-              <p class="event-muhurat"><i class="fa-solid fa-sun me-2"></i>Shubh Muhurat: 11:15 AM</p>
-              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>Shiv Niketan Mandap, Anand Chowk, Sunam</p>
-              <p class="event-note">"Two souls, seven sacred vows, and a lifetime of shared eternity."</p>
-              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
-                <span class="event-dress">🌸 Dress Code: Traditional & Regal Pastels</span>
-                <button class="btn btn-sm btn-warning text-dark event-action-btn fw-bold" onclick="alert('Wedding Ceremony saved!')">Add to Calendar</button>
-              </div>
+              <h3 class="event-title text-white">Wedding Ceremony</h3>
+              <p class="event-venue text-light"><i class="fa-solid fa-location-dot me-2"></i><a class="venue-link text-warning" href="https://www.google.com/maps/search/?api=1&amp;query=Sitasar+Mandir%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" title="Open in Google Maps">Sitasar Mandir, Sunam, Punjab<i class="fa-solid fa-arrow-up-right-from-square venue-ext"></i></a></p>
+              <p class="event-note text-white-50 fst-italic">"Two souls, seven sacred vows, and a lifetime of shared eternity."</p>
             </div>
           </div>
         </div>
-
-        <!-- Event 4: Varmala & Reception -->
         <div class="col-lg-6">
-          <div class="professional-event-card featured-event">
+          <div class="professional-event-card featured-event bg-event-card animated-card" style="background-image: linear-gradient(135deg, rgba(15, 30, 45, 0.45), rgba(25, 45, 65, 0.6)), url('/assets/reception-CjyMzLRJ.png'); background-size: cover; background-position: center;">
             <div class="event-card-header">
-              <span class="event-badge">12 DECEMBER 2026</span>
+              <span class="event-badge">Day 3 · Fri, 11 Dec</span>
               <i class="fa-solid fa-champagne-glasses event-icon"></i>
             </div>
             <div class="event-card-body">
-              <h3 class="event-title">Varmala & Grand Reception</h3>
-              <p class="event-time"><i class="fa-regular fa-clock me-2"></i>7:30 PM Onwards</p>
-              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>Maharaja Malhi Palace, Sunam, Punjab</p>
-              <p class="event-note">"The vows are taken, the garlands exchanged, let the feast begin!"</p>
-              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
-                <span class="event-dress">🥂 Dress Code: Indo-Western Glamour & Formal</span>
-                <button class="btn btn-sm btn-warning text-dark event-action-btn fw-bold" onclick="alert('Reception saved!')">Add to Calendar</button>
-              </div>
+              <h3 class="event-title text-white">Grand Reception</h3>
+              <p class="event-time text-light"><i class="fa-regular fa-clock me-2"></i>7pm onwards</p>
+              <p class="event-venue text-light"><i class="fa-solid fa-location-dot me-2"></i><a class="venue-link text-warning" href="https://www.google.com/maps/search/?api=1&amp;query=Maharaja+Malhi+Palace%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" title="Open in Google Maps">Maharaja Malhi Palace, Sunam, Punjab<i class="fa-solid fa-arrow-up-right-from-square venue-ext"></i></a></p>
+              <p class="event-note text-white-50 fst-italic">"The vows are taken, now let the celebrations begin!"</p>
             </div>
           </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4: Photo Gallery -->
-  <section class="section section-4" id="section4">
-    <div class="container py-5">
-      <div class="row text-center mb-5">
-        <div class="col-12">
-          <span class="gallery-subtitle">Captured Moments</span>
-          <h2 class="gallery-title">Our Precious Gallery</h2>
-          <div class="story-divider">
-            <span></span>
-            <i class="fa-solid fa-camera-retro"></i>
-            <span></span>
-          </div>
         </div>
       </div>
 
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="/assets/bg1-CwEsG4s6.png" alt="Wedding Moment 1" loading="lazy"></div>
-        <div class="gallery-item"><img src="/assets/bride-5p_ZGmLJ.png" alt="Bride Portrait" loading="lazy"></div>
-        <div class="gallery-item"><img src="/assets/groom-uE0vKRT0.png" alt="Groom Portrait" loading="lazy"></div>
-        <div class="gallery-item"><img src="/assets/haldi-Dpyl1AT2.png" alt="Haldi Celebration" loading="lazy"></div>
-        <div class="gallery-item"><img src="/assets/haldi2-YGjc-XPe.png" alt="Haldi Ceremony" loading="lazy"></div>
-        <div class="gallery-item"><img src="/assets/haldi3-CFrz6GdK.jpeg" alt="Festive Ritual" loading="lazy"></div>
-      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer py-4 text-center">
+  <footer class="footer text-center">
     <div class="container">
-      <p class="footer-title">Nikita Weds Khushal • 2026</p>
-      <p class="footer-blessing">"May our love grow deeper with every passing sunrise."</p>
-      <div class="footer-om">ॐ</div>
+      <p class="footer-title"><span class="footer-om">ॐ</span> Please Grace Us With Your Presence</p>
+      <p class="footer-date">11th December 2026 &nbsp;•&nbsp; Sunam, Punjab</p>
     </div>
   </footer>
+
+  <!-- Calendar Modal (Triggered by Calendar HUD button) -->
+  <div class="wishes-modal-overlay hidden" id="calendarModalOverlay">
+    <div class="wishes-modal-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0" style="font-family: 'Cormorant Garamond', serif; color: var(--vibe-accent);">Add Events to Calendar</h3>
+        <button type="button" class="btn-close btn-close-dark" id="closeCalendarModal"></button>
+      </div>
+      <p class="text-muted small mb-3">Select an event to add it to your Google Calendar:</p>
+      <div class="d-grid gap-2">
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mehndi+%E2%80%22Nikita+weds+Khushal%22&dates=20261209T113000Z/20261209T153000Z&details=Henna+on+the+hands+and+love+in+every+swirl.&location=Shiv+Niketan%2C+Anand+Chowk%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" class="btn btn-outline-warning text-dark fw-bold text-start p-2"><i class="fa-regular fa-calendar-plus me-2 text-warning"></i> Mehndi (Wed, 9 Dec)</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Haldi+%E2%80%22Nikita+weds+Khushal%22&dates=20261210T043000Z/20261210T073000Z&details=A+sacred+glow+of+turmeric%2C+laughter%2C+and+floral+blessings.&location=Shiv+Niketan%2C+Anand+Chowk%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" class="btn btn-outline-warning text-dark fw-bold text-start p-2"><i class="fa-regular fa-calendar-plus me-2 text-warning"></i> Haldi (Thu, 10 Dec)</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sangeet+%E2%80%22Nikita+weds+Khushal%22&dates=20261210T123000Z/20261210T163000Z&details=Rhythm+in+the+feet+and+melodies+in+the+air!&location=Shiv+Niketan%2C+Anand+Chowk%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" class="btn btn-outline-warning text-dark fw-bold text-start p-2"><i class="fa-regular fa-calendar-plus me-2 text-warning"></i> Sangeet (Thu, 10 Dec)</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony+%E2%80%22Nikita+weds+Khushal%22&dates=20261211T054500Z/20261211T093000Z&details=Two+souls%2C+seven+sacred+vows%2C+and+a+lifetime+of+shared+eternity.&location=Sitasar+Mandir%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" class="btn btn-outline-warning text-dark fw-bold text-start p-2"><i class="fa-regular fa-calendar-plus me-2 text-warning"></i> Wedding Ceremony (Fri, 11 Dec)</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Reception+%E2%80%22Nikita+weds+Khushal%22&dates=20261211T140000Z/20261211T180000Z&details=The+vows+are+taken%2C+now+let+the+celebrations+begin!&location=Maharaja+Malhi+Palace%2C+Sunam%2C+Punjab" target="_blank" rel="noopener" class="btn btn-outline-warning text-dark fw-bold text-start p-2"><i class="fa-regular fa-calendar-plus me-2 text-warning"></i> Grand Reception (Fri, 11 Dec)</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Wishes Modal (Triggered only when clicking Wishes button) -->
   <div class="wishes-modal-overlay hidden" id="wishesModalOverlay">
@@ -327,6 +339,8 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=5"></script>
+  <script src="js/festive.js?v=1.9"></script>
+  <script src="js/enhancements.js?v=1.1"></script>
 </body>
 </html>
