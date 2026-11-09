@@ -1,0 +1,1001 @@
+/* Container holds everything and takes up full screen */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #0a0510; /* Fallback color */
+}
+/* Video pushed to the background */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the screen without stretching */
+    z-index: 0;
+}
+/* Semi-transparent dark layer so the white text is readable over the video */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Neutral on both sides */
+    z-index: 1;
+}
+/* Text content brought to the front */
+.content-overlay {
+    position: relative;
+    z-index: 2; /* Sits above the video and the dark overlay */
+    color: #fffaf0;
+    font-family: 'Georgia', serif;
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+}
+/* Typography Styling */
+.spiritual-text {
+    color: #e5b80b; /* Gold color */
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+.om {
+    font-size: 2rem;
+}
+.title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #fffaf0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+.subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    color: #e5b80b;
+    text-transform: uppercase;
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.date {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #fefae0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 1.5px;
+}
+.scroll-prompt {
+    margin-top: 30px;
+    color: #e5b80b;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+.chevron {
+    display: block;
+    font-size: 1.5rem;
+    animation: bounceDown 1.5s infinite ease-in-out;
+}
+@keyframes bounceDown {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(6px); }
+  60% { transform: translateY(3px); }
+}
+
+/* 4 Countdown Boxes Styles */
+.countdown-boxes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px auto;
+}
+
+.countdown-box {
+  background: rgba(10, 5, 20, 0.75);
+  border: 1.5px solid #e5b80b;
+  border-radius: 12px;
+  padding: 10px 15px;
+  min-width: 75px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.countdown-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fffaf0;
+  display: block;
+  line-height: 1.1;
+}
+
+.countdown-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #e5b80b;
+  margin-top: 4px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 2.8rem; }
+  .subtitle { font-size: 0.8rem; }
+  .countdown-box { min-width: 65px; padding: 8px 10px; }
+  .countdown-num { font-size: 1.4rem; }
+}
+
+/* Master Wedding Background & General Sections */
+body {
+  background-color: var(--vibe-bg, var(--bg));
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(var(--gold-rgb), 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(var(--glow-rgb), 0.06) 0%, transparent 45%),
+    var(--pattern);
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  color: var(--vibe-text, var(--ink));
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+.section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 60px 15px;
+  text-align: center;
+}
+
+.section::after {
+  content: "✦   ✧   ✦";
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--vibe-accent, var(--gold));
+  font-size: 0.75rem;
+  letter-spacing: 0.6em;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ============ Invitation Section ============ */
+.invite-section {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(var(--glow-rgb), 0.09), transparent 60%),
+    linear-gradient(180deg, var(--bg-alt), var(--bg));
+  padding: 100px 24px 110px;
+  overflow: hidden;
+}
+
+.invite-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 740px minmax(0, 1fr);
+  align-items: end;
+}
+
+.invite-figure {
+  height: 500px;
+  width: auto;
+  max-width: none;
+  filter: drop-shadow(0 20px 25px rgba(var(--shadow-rgb), 0.25));
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+.groom-figure {
+  justify-self: end;
+  margin-right: -60px;
+}
+
+.bride-figure {
+  justify-self: start;
+  margin-left: -25px;
+}
+
+/* Scroll Reveal Card Effect */
+.scroll-reveal-card {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-reveal-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The invitation card itself */
+.wedding-card {
+  position: relative;
+  width: 100%;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(var(--glow-rgb), 0.07), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(var(--glow-rgb), 0.08), transparent 50%),
+    var(--surface);
+  border-radius: 28px;
+  border: 2px solid rgba(var(--accent-rgb), 0.25);
+  box-shadow: 0 35px 80px rgba(var(--shadow-rgb), 0.18), 0 0 40px rgba(var(--accent-rgb), 0.1);
+  z-index: 10;
+}
+
+.invite-inner {
+  border: 1px solid rgba(var(--gold-rgb), 0.5);
+  border-radius: 20px;
+  padding: 40px 48px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  background-image: var(--mandala);
+  background-repeat: no-repeat;
+  background-position: center 40%;
+  background-size: 420px;
+}
+
+.invite-ganesh {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--vibe-accent);
+  letter-spacing: 1px;
+}
+
+.gold-badge-top {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--vibe-accent, var(--gold-deep));
+}
+
+.invite-blessing {
+  max-width: 520px;
+  margin: 4px 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.wedding-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3.6rem, 7vw, 5.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--vibe-accent, var(--gold-deep));
+  margin: 0;
+}
+
+.weds-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+}
+
+.weds-wrapper::before,
+.weds-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 52%;
+  width: 60px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.weds-wrapper::before { left: 0; }
+.weds-wrapper::after { right: 0; transform: scaleX(-1); }
+
+.weds {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--accent-2);
+  padding: 0 10px;
+}
+
+.parents-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 28px;
+  margin: 6px 0;
+  width: 100%;
+}
+
+.parent-block {
+  flex: 1;
+  max-width: 260px;
+}
+
+.relation-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--vibe-accent, var(--gold));
+  margin-bottom: 6px;
+}
+
+.parent-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0;
+}
+
+.divider {
+  width: 1.5px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+}
+
+.invite-date {
+  margin-top: 8px;
+  padding: 10px 26px;
+  border-radius: 50px;
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  background: rgba(var(--accent-rgb), 0.05);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.invite-date i {
+  color: var(--vibe-accent);
+  margin-right: 6px;
+}
+
+.invite-closing {
+  margin: 8px 0 0;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.9rem;
+  color: var(--vibe-accent);
+}
+
+@media (max-width: 1200px) {
+  .invite-stage {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .wedding-card {
+    max-width: 760px;
+  }
+  .invite-figure {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .invite-section {
+    padding: 70px 12px 90px;
+  }
+  .wedding-card {
+    padding: 10px;
+  }
+  .invite-inner {
+    padding: 28px 18px 24px;
+  }
+  .parents-section {
+    gap: 14px;
+  }
+  .parent-names {
+    font-size: 1rem;
+  }
+}
+
+/* Floating Top Toggle & HUD */
+.floating-top-toggle {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  z-index: 99999;
+}
+
+/* Section 2 - Our Story */
+.section-2 {
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(var(--glow-rgb), 0.10), transparent 55%),
+    radial-gradient(ellipse at 90% 80%, rgba(var(--gold-rgb), 0.12), transparent 50%),
+    linear-gradient(180deg, var(--bg), var(--bg-alt));
+  padding: 90px 24px 110px;
+  overflow: hidden;
+}
+
+.story-wrap {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.story-header {
+  margin-bottom: 50px;
+}
+
+.story-header .story-title {
+  font-size: clamp(2.6rem, 5vw, 4rem);
+}
+
+.story-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 5fr) 7fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+
+/* Arched mandap frame */
+.story-frame-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-arch {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px 24px 24px;
+  background:
+    radial-gradient(circle at 50% 35%, #fff 0%, var(--accent-soft) 50%, color-mix(in srgb, var(--vibe-accent) 22%, var(--accent-soft)) 100%);
+  border: 3px solid var(--gold);
+  outline: 2px solid color-mix(in srgb, var(--vibe-accent) 50%, transparent);
+  outline-offset: 10px;
+  box-shadow: 0 30px 70px rgba(var(--shadow-rgb), 0.2), inset 0 0 60px rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.story-arch-glow {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 70%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 215, 0, 0.25) 50%, transparent 70%);
+  animation: archGlow 5s ease-in-out infinite;
+}
+
+@keyframes archGlow {
+  0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+}
+
+.story-arch-img {
+  position: relative;
+  width: 92%;
+  height: auto;
+  max-height: 92%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 12px 20px rgba(var(--shadow-rgb), 0.3));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-arch:hover .story-arch-img {
+  transform: scale(1.04);
+}
+
+.story-quote-badge {
+  position: relative;
+  margin-top: -50px;
+  max-width: 360px;
+  padding: 22px 26px 18px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1.5px solid color-mix(in srgb, var(--vibe-accent) 40%, transparent);
+  box-shadow: 0 18px 40px rgba(var(--shadow-rgb), 0.15);
+  text-align: center;
+  z-index: 2;
+}
+
+.story-quote-mark {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--vibe-accent);
+  color: #fff;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.story-quote-badge p {
+  margin: 6px 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+/* Chapter timeline */
+.story-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.story-timeline::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 27px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--vibe-accent), var(--gold));
+  opacity: 0.6;
+}
+
+.story-chapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.chapter-icon {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vibe-accent), var(--gold));
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--surface);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--vibe-accent) 35%, transparent);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chapter-card {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  border-left: 4px solid var(--vibe-accent);
+  border-radius: 16px;
+  padding: 22px 28px;
+  box-shadow: 0 12px 30px rgba(var(--shadow-rgb), 0.07);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.story-chapter:hover .chapter-card {
+  transform: translateX(8px);
+  box-shadow: 0 18px 40px rgba(var(--shadow-rgb), 0.13);
+}
+
+.story-chapter:hover .chapter-icon {
+  transform: scale(1.15) rotate(-10deg);
+}
+
+.chapter-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--vibe-accent);
+}
+
+.chapter-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2px 0 8px;
+}
+
+.chapter-card p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Bottom banner */
+.story-banner {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.story-banner::before,
+.story-banner::after {
+  content: "";
+  flex: 1;
+  max-width: 280px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.story-banner::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.banner-title {
+  margin: 0;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  color: var(--vibe-accent);
+  line-height: 1.2;
+}
+
+.banner-flourish {
+  color: var(--gold);
+  font-size: 1.6rem;
+}
+
+@media (max-width: 991px) {
+  .story-layout {
+    grid-template-columns: 1fr;
+  }
+  .story-arch {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-2 {
+    padding: 70px 16px 90px;
+  }
+  .story-chapter {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+  .chapter-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  .story-timeline::before {
+    left: 21px;
+  }
+  .chapter-card {
+    padding: 18px 18px;
+  }
+  .chapter-card h3 {
+    font-size: 1.55rem;
+  }
+  .story-banner {
+    gap: 12px;
+  }
+  .story-banner::before,
+  .story-banner::after {
+    display: none;
+  }
+}
+
+.story-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--vibe-accent, var(--gold-deep));
+}
+
+.story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 5px;
+}
+
+.story-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0 25px;
+  color: var(--vibe-accent, var(--gold));
+}
+
+.story-divider span {
+  height: 1px;
+  width: 50px;
+  background: var(--vibe-accent, var(--gold));
+}
+
+.story-body p {
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* Professional Luxury Wedding Event Cards */
+.professional-event-card {
+  background: var(--card-bg, rgba(255, 255, 255, 0.92));
+  border: 1px solid var(--card-border, rgba(var(--gold-rgb), 0.35));
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.professional-event-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--vibe-accent, var(--gold));
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 30px rgba(var(--gold-rgb), 0.25);
+}
+
+.professional-event-card.featured-event {
+  background: linear-gradient(135deg, var(--surface), var(--bg-alt));
+  border: 2px solid var(--vibe-accent, var(--gold));
+}
+
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.2);
+  padding-bottom: 1rem;
+}
+
+.event-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  background: rgba(var(--gold-rgb), 0.15);
+  color: var(--vibe-accent, var(--gold));
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  border: 1px solid var(--vibe-accent, var(--gold));
+}
+
+.event-icon {
+  font-size: 1.5rem;
+  color: var(--vibe-accent, var(--gold));
+}
+
+.event-card-body .event-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.event-card-body .event-time,
+.event-card-body .event-venue,
+.event-card-body .event-muhurat {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.event-card-body .event-time i,
+.event-card-body .event-venue i {
+  color: var(--vibe-accent, var(--gold));
+  width: 20px;
+}
+
+.event-card-body .event-note {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 1rem 0 0.5rem 0;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(180deg, var(--dark), var(--dark-2));
+  color: #fefae0;
+  padding: 26px 16px 22px;
+  border-top: 3px solid var(--gold);
+}
+
+.footer-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: #f3d27a;
+  margin: 0;
+  line-height: 1.2;
+  word-spacing: 0.2em;
+}
+
+.footer-title .amp {
+  color: var(--vibe-accent);
+  margin: 0 0.2em;
+}
+
+.footer-om {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  text-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
+  vertical-align: middle;
+  margin-right: 0.35em;
+}
+
+.footer-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 4px 0 0;
+}
+
+/* ============ Shared Section System ============
+   One look for every section header, background rhythm and width. */
+.section-eyebrow {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--vibe-accent);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 4px;
+}
+
+.section-lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Alternate light and warm backgrounds so the page flows as one */
+.section-3 {
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(var(--glow-rgb), 0.08), transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgba(var(--gold-rgb), 0.08), transparent 50%);
+  padding: 90px 24px 110px;
+}
+
+.section-3 > .container {
+  max-width: 1320px;
+}
+
+/* Event cards share the chapter-card look from Our Story */
+.professional-event-card {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 34px rgba(var(--shadow-rgb), 0.08);
+}
+
+.professional-event-card.featured-event {
+  background: linear-gradient(135deg, var(--surface), var(--bg-alt));
+}
+
+.event-card-body .event-time,
+.event-card-body .event-venue,
+.event-card-body .event-muhurat {
+  font-size: 1rem;
+}
+
+.event-card-body .event-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+}
+
+/* Celebrations: two aligned rows, pre-wedding then the wedding day */
+.celebration-group + .celebration-group {
+  margin-top: 56px;
+}
+
+.group-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.group-head::before,
+.group-head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--gold-rgb), 0.7), transparent);
+}
+
+/* Every card in a row is the same height, with the attire line pinned to the bottom */
+.section-3 .professional-event-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-3 .event-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-attire {
+  margin: auto 0 0;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(var(--gold-rgb), 0.45);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.event-attire i {
+  color: var(--vibe-accent);
+}
