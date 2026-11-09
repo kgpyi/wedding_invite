@@ -115,6 +115,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Petal Shower Trigger
+  const triggerPetals = document.getElementById('triggerPetals');
+  if (triggerPetals) {
+    triggerPetals.addEventListener('click', (e) => {
+      if (window.festive) {
+        window.festive.confetti(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 90);
+        window.festive.toast('🌸 Petal shower — wishing you endless joy! ✨');
+      }
+    });
+  }
+
+  // Calendar Modal Controls
+  const openCalendarModal = document.getElementById('openCalendarModal');
+  const calendarModalOverlay = document.getElementById('calendarModalOverlay');
+  const closeCalendarModal = document.getElementById('closeCalendarModal');
+
+  if (openCalendarModal && calendarModalOverlay) {
+    openCalendarModal.addEventListener('click', () => {
+      calendarModalOverlay.classList.remove('hidden');
+    });
+  }
+
+  if (closeCalendarModal && calendarModalOverlay) {
+    closeCalendarModal.addEventListener('click', () => {
+      calendarModalOverlay.classList.add('hidden');
+    });
+  }
+
   // Wishes Modal Controls
   const openWishesModal = document.getElementById('openWishesModal');
   const wishesModalOverlay = document.getElementById('wishesModalOverlay');
@@ -137,7 +165,14 @@ document.addEventListener('DOMContentLoaded', function() {
   if (wishesForm) {
     wishesForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name = document.getElementById('wishName').value;
+      const message = document.getElementById('wishMessage').value;
+
       if (window.festive) window.festive.confetti(window.innerWidth / 2, window.innerHeight / 2, 60);
+
+      const mailtoUrl = `mailto:?subject=${encodeURIComponent('Wedding Blessing from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\n\nMessage:\n' + message)}`;
+      window.location.href = mailtoUrl;
+
       if (wishesSuccess) {
         wishesSuccess.classList.remove('d-none');
         setTimeout(() => {

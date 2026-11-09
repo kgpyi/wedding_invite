@@ -225,82 +225,6 @@
     }, { threshold: 0.5 }).observe(card);
   }
 
-  // ---------- Shehnai-style melody (synthesised, no audio file needed) ----------
-  function music() {
-    const btn = document.getElementById('musicToggleBtn');
-    if (!btn) return;
-    let audioCtx, master, timer, playing = false;
-    // Raag Bhupali-flavoured pentatonic around C4: Sa Re Ga Pa Dha Sa'
-    const scale = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25, 587.33];
-    let step = 2;
-
-    function note(freq, start, dur) {
-      const osc = audioCtx.createOscillator();
-      const vib = audioCtx.createOscillator();
-      const vibGain = audioCtx.createGain();
-      const gain = audioCtx.createGain();
-      const filter = audioCtx.createBiquadFilter();
-      osc.type = 'sawtooth';
-      osc.frequency.value = freq;
-      vib.frequency.value = 5.5;
-      vibGain.gain.value = freq * 0.008;
-      vib.connect(vibGain).connect(osc.frequency);
-      filter.type = 'lowpass';
-      filter.frequency.value = 1800;
-      gain.gain.setValueAtTime(0, start);
-      gain.gain.linearRampToValueAtTime(0.12, start + 0.08);
-      gain.gain.setValueAtTime(0.12, start + dur * 0.7);
-      gain.gain.linearRampToValueAtTime(0, start + dur);
-      osc.connect(filter).connect(gain).connect(master);
-      osc.start(start); vib.start(start);
-      osc.stop(start + dur + 0.05); vib.stop(start + dur + 0.05);
-    }
-
-    function drone() {
-      [130.81, 196.0].forEach((f) => {
-        const o = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        o.type = 'triangle';
-        o.frequency.value = f;
-        g.gain.value = 0.05;
-        o.connect(g).connect(master);
-        o.start();
-        master.droneNodes = (master.droneNodes || []).concat(o);
-      });
-    }
-
-    function phrase() {
-      const t = audioCtx.currentTime + 0.05;
-      let offset = 0;
-      for (let i = 0; i < 4; i++) {
-        step = Math.min(scale.length - 1, Math.max(0, step + Math.floor(Math.random() * 3) - 1));
-        const dur = [0.4, 0.6, 0.8, 1.2][Math.floor(Math.random() * 4)];
-        note(scale[step], t + offset, dur);
-        offset += dur;
-      }
-      timer = setTimeout(phrase, offset * 1000 + 300);
-    }
-
-    btn.addEventListener('click', (e) => {
-      playing = !playing;
-      btn.classList.toggle('playing', playing);
-      if (playing) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        master = audioCtx.createGain();
-        master.gain.value = 0.6;
-        master.connect(audioCtx.destination);
-        drone();
-        phrase();
-        confetti(e.clientX, e.clientY, 18);
-        toast('🎵 Shehnai melodies playing — let the celebrations begin!');
-      } else {
-        clearTimeout(timer);
-        if (audioCtx) audioCtx.close();
-        toast('🔇 Music paused');
-      }
-    });
-  }
-
   // ---------- Family toggle: celebratory burst ----------
   function toggleBurst() {
     const t = document.getElementById('familySliderToggle');
@@ -318,7 +242,6 @@
     scrollReveals();
     countdownPop();
     decorateCard();
-    music();
     toggleBurst();
   });
 })();
