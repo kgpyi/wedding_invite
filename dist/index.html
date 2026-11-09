@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikita Weds Khushal • Royal Wedding Celebration</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/assets/index-ClQsFOSh.css">
+</head>
+<body data-theme="default" data-family="bride">
+
+  <!-- Floating Family Side Toggle & HUD -->
+  <div class="floating-top-toggle">
+    <div class="family-slider-toggle" id="familySliderToggle" title="Switch Side">
+      <div class="slider-track">
+        <div class="slider-thumb" id="sliderThumb">N</div>
+        <span class="option-label bride-lbl active" id="lblNikita">🌸 NIKITA</span>
+        <span class="option-label groom-lbl" id="lblKhushal">👑 KHUSHAL</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="floating-action-hud">
+    <button class="hud-btn music-toggle-btn" id="musicToggleBtn" title="Play Wedding Shehnai">
+      <i class="fa-solid fa-music"></i>
+    </button>
+    <button class="hud-btn wishes-btn" id="openWishesModal" title="Send Wishes">
+      <i class="fa-solid fa-heart"></i>
+    </button>
+  </div>
+
+  <!-- Section 1: Grand Invitation Hero with Video Background & Content Overlay -->
+  <section class="hero-container" id="section1">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="/assets/vid2-DbbLPld7.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <div class="content-overlay">
+      <div class="spiritual-text mb-3">
+        <div class="om" style="color: #e5b80b; font-size: 2.8rem; text-shadow: 0 0 20px rgba(229, 184, 11, 0.8); margin-bottom: 5px;">ॐ</div>
+        <p style="color: #e5b80b; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; text-shadow: 0 2px 5px rgba(0,0,0,0.8);">|| श्री गणेशाय नमः • ॐ गंगायै नमः ||</p>
+      </div>
+
+      <h1 class="title">Nikita Weds Khushal</h1>
+      <p class="subtitle">From the Sacred Ghats of Rishikesh & Heritage of Delhi to the Royal Festivities of Punjab</p>
+      <p class="date">Friday, 11th & Saturday, 12th December 2026</p>
+
+      <!-- 4 Countdown Boxes -->
+      <div class="countdown-boxes-container mb-3">
+        <div class="countdown-box">
+          <span id="days" class="countdown-num">--</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+          <span id="hours" class="countdown-num">--</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+          <span id="minutes" class="countdown-num">--</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+          <span id="seconds" class="countdown-num">--</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <div class="scroll-prompt" id="scrollPrompt">
+        <p>SCROLL TO OPEN INVITATION</p>
+        <span class="chevron">⌄</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1B: Wedding Invitation Card (Scroll Reveal) -->
+  <section class="section" id="invitationSection" style="min-height: 90vh;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <div class="wedding-card-container scroll-reveal-card revealed" id="weddingInviteCard">
+            <div class="side-figure groom-side" style="background-image: url('/assets/groom-uE0vKRT0.png');" alt="Groom Khushal"></div>
+            
+            <div class="wedding-card" id="weddingCardMain">
+              <div class="gold-badge-top">✦ Royal Wedding Invitation ✦</div>
+              
+              <div class="wedding-names" id="weddingNamesContainer">
+                <div class="name primary-name" id="firstName">Nikita</div>
+                <div class="weds-wrapper">
+                  <span class="weds" id="wedsLabel">weds</span>
+                </div>
+                <div class="name secondary-name" id="secondName">Khushal</div>
+              </div>
+
+              <div class="parents-section" id="parentsSection">
+                <div class="parent-block primary-parent">
+                  <p class="relation-label" id="firstRelationLabel">Daughter of</p>
+                  <p class="parent-names" id="firstParentNames">Mr. Diwan Singh Gosai & Mrs. Guddi Gosai</p>
+                </div>
+                <div class="divider"></div>
+                <div class="parent-block secondary-parent">
+                  <p class="relation-label" id="secondRelationLabel">Son of</p>
+                  <p class="parent-names" id="secondParentNames">Mr. Mukesh Kumar Goyal & Mrs. Rajni Goyal</p>
+                </div>
+              </div>
+
+              <div class="wedding-date-badge my-3">
+                <i class="fa-regular fa-calendar-days me-2"></i> Friday, 11th December & Saturday, 12th December 2026
+              </div>
+              <p class="hashtag mb-0"><i class="fa-solid fa-location-dot me-1"></i> Venue: Maharaja Malhi Palace & Shiv Niketan Mandap, Sunam, Punjab</p>
+            </div>
+
+            <div class="side-figure bride-side" style="background-image: url('/assets/bride-5p_ZGmLJ.png');" alt="Bride Nikita"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Our Love Story -->
+  <section class="section section-2" id="section2">
+    <div class="container py-5">
+      <div class="row align-items-center justify-content-center story-row">
+        
+        <!-- Left Side - Visual Art -->
+        <div class="col-lg-5 mb-5 mb-lg-0 text-center story-visual-col">
+          <div class="story-visual-card p-4">
+            <div class="ornament ornament-top">✦ ✦ ✦</div>
+            <div class="decorative-element my-4">
+              <i class="fa-solid fa-ring-diamond fa-2x" style="color: var(--vibe-accent);"></i>
+              <div class="floating-hearts">
+                <span class="f-heart">❤</span>
+                <span class="f-heart">❤</span>
+                <span class="f-heart">❤</span>
+              </div>
+            </div>
+            <h3 class="story-card-title">Two Souls, One Destiny</h3>
+            <p class="visual-caption">"What is meant for you will find its way even in the most magical of ways."</p>
+            <div class="ornament ornament-bottom">✦ ✦ ✦</div>
+          </div>
+        </div>
+
+        <!-- Right Side - Story Text -->
+        <div class="col-lg-7 story-content-col">
+          <div class="story-scroll-container text-start p-4 p-md-5">
+            <div class="story-header mb-4">
+              <span class="story-subtitle">A Tale of Love</span>
+              <h2 class="story-title">Our Story</h2>
+              <div class="story-divider">
+                <span></span>
+                <i class="fa-solid fa-heart"></i>
+                <span></span>
+              </div>
+            </div>
+            <div class="story-body">
+              <p>Their journey began under a canopy of stars, where two paths intertwined into a single destiny. What started as warm conversation blossomed into an unbreakable bond of shared laughter, quiet understanding, and unwavering support.</p>
+
+              <p>Through every season and adventure—from spontaneous road trips to quiet mornings over coffee—they discovered that true love isn't just about grand milestones, but the absolute peace of being home in each other's presence.</p>
+
+              <p>Now, standing on the threshold of forever, they invite you to celebrate their sacred union, surrounded by the blessings of family and the joy of lifelong companionship.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: The Royal Celebrations (Itinerary) -->
+  <section class="section section-3" id="section3">
+    <div class="container py-5">
+      <div class="row text-center mb-5">
+        <div class="col-12">
+          <span class="gallery-subtitle">Royal Itinerary</span>
+          <h1 class="celebrations-title">The Celebrations</h1>
+          <div class="story-divider">
+            <span></span>
+            <i class="fa-solid fa-ring"></i>
+            <span></span>
+          </div>
+          <p class="text-muted">Join us in the sacred rituals and joyous festivities</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Event 1: Haldi Ceremony -->
+        <div class="col-lg-6">
+          <div class="professional-event-card">
+            <div class="event-card-header">
+              <span class="event-badge">09 DECEMBER 2026</span>
+              <i class="fa-solid fa-sun event-icon"></i>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-title">Haldi Ceremony</h3>
+              <p class="event-time"><i class="fa-regular fa-clock me-2"></i>10:00 AM Onwards</p>
+              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>Shiv Niketan, Anand Chowk, Sunam, Punjab</p>
+              <p class="event-note">"A sacred glow of turmeric, laughter, and floral blessings."</p>
+              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
+                <span class="event-dress">💛 Dress Code: Shades of Yellow</span>
+                <button class="btn btn-sm btn-outline-warning event-action-btn" onclick="alert('Haldi event saved to itinerary!')">Add to Calendar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2: Mehndi & Sangeet -->
+        <div class="col-lg-6">
+          <div class="professional-event-card">
+            <div class="event-card-header">
+              <span class="event-badge">10 DECEMBER 2026</span>
+              <i class="fa-solid fa-music event-icon"></i>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-title">Mehndi & Sangeet Night</h3>
+              <p class="event-time"><i class="fa-regular fa-clock me-2"></i>5:00 PM Onwards</p>
+              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>The Royal Courtyard, Sunam, Punjab</p>
+              <p class="event-note">"Henna on the hands, rhythm in the feet, and melodies in the air!"</p>
+              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
+                <span class="event-dress">🌿 Dress Code: Vibrant Greens & Festive Glam</span>
+                <button class="btn btn-sm btn-outline-warning event-action-btn" onclick="alert('Mehndi & Sangeet event saved!')">Add to Calendar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3: Wedding Ceremony -->
+        <div class="col-lg-6">
+          <div class="professional-event-card featured-event">
+            <div class="event-card-header">
+              <span class="event-badge">11 DECEMBER 2026</span>
+              <i class="fa-solid fa-fire event-icon"></i>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-title">The Wedding Ceremony</h3>
+              <p class="event-muhurat"><i class="fa-solid fa-sun me-2"></i>Shubh Muhurat: 11:15 AM</p>
+              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>Shiv Niketan Mandap, Anand Chowk, Sunam</p>
+              <p class="event-note">"Two souls, seven sacred vows, and a lifetime of shared eternity."</p>
+              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
+                <span class="event-dress">🌸 Dress Code: Traditional & Regal Pastels</span>
+                <button class="btn btn-sm btn-warning text-dark event-action-btn fw-bold" onclick="alert('Wedding Ceremony saved!')">Add to Calendar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4: Varmala & Reception -->
+        <div class="col-lg-6">
+          <div class="professional-event-card featured-event">
+            <div class="event-card-header">
+              <span class="event-badge">12 DECEMBER 2026</span>
+              <i class="fa-solid fa-champagne-glasses event-icon"></i>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-title">Varmala & Grand Reception</h3>
+              <p class="event-time"><i class="fa-regular fa-clock me-2"></i>7:30 PM Onwards</p>
+              <p class="event-venue"><i class="fa-solid fa-location-dot me-2"></i>Maharaja Malhi Palace, Sunam, Punjab</p>
+              <p class="event-note">"The vows are taken, the garlands exchanged, let the feast begin!"</p>
+              <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
+                <span class="event-dress">🥂 Dress Code: Indo-Western Glamour & Formal</span>
+                <button class="btn btn-sm btn-warning text-dark event-action-btn fw-bold" onclick="alert('Reception saved!')">Add to Calendar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Photo Gallery -->
+  <section class="section section-4" id="section4">
+    <div class="container py-5">
+      <div class="row text-center mb-5">
+        <div class="col-12">
+          <span class="gallery-subtitle">Captured Moments</span>
+          <h2 class="gallery-title">Our Precious Gallery</h2>
+          <div class="story-divider">
+            <span></span>
+            <i class="fa-solid fa-camera-retro"></i>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="/assets/bg1-CwEsG4s6.png" alt="Wedding Moment 1" loading="lazy"></div>
+        <div class="gallery-item"><img src="/assets/bride-5p_ZGmLJ.png" alt="Bride Portrait" loading="lazy"></div>
+        <div class="gallery-item"><img src="/assets/groom-uE0vKRT0.png" alt="Groom Portrait" loading="lazy"></div>
+        <div class="gallery-item"><img src="/assets/haldi-Dpyl1AT2.png" alt="Haldi Celebration" loading="lazy"></div>
+        <div class="gallery-item"><img src="/assets/haldi2-YGjc-XPe.png" alt="Haldi Ceremony" loading="lazy"></div>
+        <div class="gallery-item"><img src="/assets/haldi3-CFrz6GdK.jpeg" alt="Festive Ritual" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-4 text-center">
+    <div class="container">
+      <p class="footer-title">Nikita Weds Khushal • 2026</p>
+      <p class="footer-blessing">"May our love grow deeper with every passing sunrise."</p>
+      <div class="footer-om">ॐ</div>
+    </div>
+  </footer>
+
+  <!-- Wishes Modal (Triggered only when clicking Wishes button) -->
+  <div class="wishes-modal-overlay hidden" id="wishesModalOverlay">
+    <div class="wishes-modal-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0" style="font-family: 'Cormorant Garamond', serif; color: var(--vibe-accent);">Send Your Blessings</h3>
+        <button type="button" class="btn-close btn-close-dark" id="closeWishesModal"></button>
+      </div>
+      <form id="wishesForm">
+        <div class="mb-3">
+          <label class="form-label text-start d-block">Your Name</label>
+          <input type="text" class="form-control" id="wishName" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label text-start d-block">Your Message / Blessing</label>
+          <textarea class="form-control" id="wishMessage" rows="3" placeholder="Wishing you a lifetime of love and joy..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-warning w-100 fw-bold">Send Blessing 💖</button>
+      </form>
+      <div id="wishesSuccess" class="alert alert-success mt-3 d-none">Thank you for your warm blessing! ✨</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   Colour themes
+   Gold is shared by both sides and ties the wedding together.
+   Each side then has its own full palette, so the whole page
+   changes when the toggle flips, not just the accents.
+   ============================================================ */
+:root {
+  --gold: #c9a227;
+  --gold-rgb: 201, 162, 39;
+  --gold-deep: #9c7a16;
+  --gold-light: #f3d27a;
+}
+
+/* Nikita: "Jamuni". Deep amethyst-plum on soft ivory. Amethyst, emerald
+   and gold are the classic royal-jewellery trio, so Nikita's side is as
+   rich as Khushal's emerald while staying quiet and elegant. */
+body[data-family="bride"] {
+  --vibe-accent: #5b2c6f;
+  --accent-rgb: 91, 44, 111;
+  --accent-2: #8a5a9e;
+  --accent-soft: #ece3f0;
+  --glow-rgb: 120, 70, 140;
+  --bg: #fcfafb;
+  --bg-alt: #f3edf3;
+  --surface: #fffefe;
+  --ink: #2a1533;
+  --ink-soft: #54405c;
+  --muted: #85738c;
+  --shadow-rgb: 70, 30, 90;
+  --dark: #2a1236;
+  --dark-2: #14081b;
+  --pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l5 15 15 5-15 5-5 15-5-15-15-5 15-5z' fill='%235b2c6f' fill-opacity='0.045' fill-rule='evenodd'/%3E%3C/svg%3E");
+  --mandala: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%235b2c6f' stroke-opacity='0.1'%3E%3Ccircle cx='110' cy='110' r='100'/%3E%3Ccircle cx='110' cy='110' r='70'/%3E%3Ccircle cx='110' cy='110' r='40'/%3E%3Cpath d='M110 10 L110 210 M10 110 L210 110 M39 39 L181 181 M181 39 L39 181'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Khushal: "Panna". Deep emerald on cool ivory, the jewel of a royal
+   sehra. Emerald sits opposite terracotta on the colour wheel, so the
+   toggle reads clearly, and both sit richly beside the shared gold. */
+body[data-family="groom"] {
+  --vibe-accent: #1c5b4c;
+  --accent-rgb: 28, 91, 76;
+  --accent-2: #3f8a74;
+  --accent-soft: #dcece6;
+  --glow-rgb: 28, 91, 76;
+  --bg: #f7faf8;
+  --bg-alt: #e9f2ee;
+  --surface: #ffffff;
+  --ink: #10302a;
+  --ink-soft: #36564e;
+  --muted: #6c867e;
+  --shadow-rgb: 15, 60, 50;
+  --dark: #0e2d27;
+  --dark-2: #061713;
+  --pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l5 15 15 5-15 5-5 15-5-15-15-5 15-5z' fill='%231c5b4c' fill-opacity='0.045' fill-rule='evenodd'/%3E%3C/svg%3E");
+  --mandala: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%231c5b4c' stroke-opacity='0.1'%3E%3Ccircle cx='110' cy='110' r='100'/%3E%3Ccircle cx='110' cy='110' r='70'/%3E%3Ccircle cx='110' cy='110' r='40'/%3E%3Cpath d='M110 10 L110 210 M10 110 L210 110 M39 39 L181 181 M181 39 L39 181'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Older names used across the stylesheets, mapped onto the theme */
+body {
+  --vibe-bg: var(--bg);
+  --vibe-text: var(--ink);
+  --text-muted: var(--muted);
+  --card-bg: var(--surface);
+  --card-border: rgba(var(--accent-rgb), 0.3);
+  --card-shadow: 0 20px 50px rgba(var(--shadow-rgb), 0.1), 0 0 30px rgba(var(--gold-rgb), 0.15);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--vibe-text, var(--ink));
+  background-color: var(--vibe-bg, var(--bg));
+  line-height: 1.6;
+  padding-top: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Floating Action HUD */
+.floating-action-hud {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.hud-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--vibe-accent);
+  color: var(--vibe-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-btn:hover {
+  background: var(--vibe-accent);
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(var(--accent-rgb), 0.35);
+}
+
+/* Navbar Style */
+.navbar {
+  background-color: rgba(253, 251, 247, 0.97) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid rgba(var(--gold-rgb), 0.25);
+  box-shadow: 0 4px 20px rgba(var(--shadow-rgb), 0.08);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.navbar-brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--ink) !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-countdown-badge {
+  font-size: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  background: rgba(var(--gold-rgb), 0.12);
+  color: var(--vibe-accent);
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  border-radius: 50px;
+}
+
+.nav-link {
+  color: var(--ink-soft) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--vibe-accent) !important;
+}
+
+/* Family Slider Toggle in Navbar */
+.family-slider-toggle {
+  background: #1a1a1a;
+  border: 2px solid var(--vibe-accent);
+  border-radius: 50px;
+  padding: 4px;
+  width: 230px;
+  height: 44px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 20px rgba(var(--gold-rgb), 0.4);
+}
+
+.slider-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.slider-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 50%;
+  height: calc(100% - 4px);
+  background: linear-gradient(135deg, var(--vibe-accent), var(--accent-2));
+  color: #fff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+  z-index: 2;
+  font-weight: 900;
+}
+
+body[data-family="groom"] .slider-thumb {
+  transform: translateX(100%);
+}
+
+.option-label {
+  flex: 1;
+  text-align: center;
+  z-index: 1;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.option-label.active {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+/* Side Selection Welcome Modal */
+.side-modal-overlay, .wishes-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.side-modal-overlay.hidden, .wishes-modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.side-modal-card, .wishes-modal-card {
+  background: var(--surface);
+  border: 2px solid var(--vibe-accent);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--gold-rgb), 0.3);
+}
+
+.modal-om {
+  font-size: 2.2rem;
+  color: var(--vibe-accent);
+  margin-bottom: 0.5rem;
+}
+
+.side-modal-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.side-modal-header p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+
+.side-selection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.side-option-btn {
+  background: #fff;
+  border: 2px solid rgba(var(--gold-rgb), 0.3);
+  border-radius: 16px;
+  padding: 1.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.side-option-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--vibe-accent);
+  box-shadow: 0 10px 25px rgba(var(--gold-rgb), 0.25);
+  background: rgba(var(--gold-rgb), 0.05);
+}
+
+.side-icon {
+  font-size: 2.2rem;
+}
+
+.side-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.side-subtitle {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 576px) {
+  .side-selection-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Buttons follow the active side instead of Bootstrap yellow */
+#wishesForm .btn-warning {
+  background: var(--vibe-accent);
+  border-color: var(--vibe-accent);
+  color: #fff !important;
+}
+
+#wishesForm .btn-warning:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff !important;
+}
+
+.wishes-modal-card .form-control:focus {
+  border-color: var(--vibe-accent);
+  box-shadow: 0 0 0 0.2rem rgba(var(--accent-rgb), 0.2);
+}
+
+/* Smooth hand-off between the two palettes */
+body,
+.section,
+.wedding-card,
+.chapter-card,
+.professional-event-card,
+.footer {
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+}
